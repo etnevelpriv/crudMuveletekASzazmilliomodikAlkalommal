@@ -2,12 +2,14 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import type { User_interface } from './Models/Interfaces/User.interface'
+import type { SubmitEventHandler } from 'react'
 
-export const App = function() {
+
+export const App = function () {
   const [users, setUsers] = useState<User_interface[]>([])
   const [name, setName] = useState<string>('')
   const [age, setAge] = useState<string>('')
-  
+
 
   useEffect(() => {
     async function fetchUsers() {
@@ -15,13 +17,31 @@ export const App = function() {
         const response = await fetch('http://localhost:3000/users')
         const data: User_interface[] = await response.json()
         setUsers(data)
-      } catch (err) {
-        console.log(err)
+      } catch (err: Error | any) {
+        throw new Error(err);
       }
     }
     fetchUsers()
 
   }, [])
+
+  const addUser: SubmitEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          name: name,
+          age: age
+        })
+      })
+      const newUser: User_interface = await response.json()
+      setUsers((lastUsers) => [...lastUsers, newUser])
+    } catch (err: Error | any) {
+      throw new Error(err);
+    }
+  }
   return (
     <div className='container'>
       <table>
@@ -46,7 +66,7 @@ export const App = function() {
       </table>
       <h1>Felhasznalok</h1>
       <h2>Felhasznalo felvetele</h2>
-      <form>
+      <form onSubmit={addUser}>
         <div className="input-group">
           <label htmlFor='nameInput'>Nev</label>
           <input

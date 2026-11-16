@@ -14,6 +14,41 @@
       "name": "Kitti",
       "age": 20,
       "id": "YFp6fO55BFQ"
+    },
+    {
+      "name": "fd",
+      "age": "3",
+      "id": "HuBREnw9g2w"
+    },
+    {
+      "name": "fds",
+      "age": "3",
+      "id": "5i4ZSgCQlm0"
+    },
+    {
+      "name": "f",
+      "age": "3",
+      "id": "CoZkswrpnsI"
+    },
+    {
+      "name": "fds",
+      "age": "2",
+      "id": "uOLUiXUHxko"
+    },
+    {
+      "name": "fsd",
+      "age": "2",
+      "id": "8Vn0Q7h_HYs"
+    },
+    {
+      "name": "dfsw",
+      "age": "3",
+      "id": "_rUoY2ZqMWc"
+    },
+    {
+      "name": "DFS",
+      "age": "2",
+      "id": "LhOpnFAIhMI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
