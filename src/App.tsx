@@ -1,11 +1,13 @@
 import './App.css'
-import { use, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import type { User_interface } from './Models/Interfaces/User.interface'
 
-function App() {
+export const App = function() {
   const [users, setUsers] = useState<User_interface[]>([])
-
+  const [name, setName] = useState<string>('')
+  const [age, setAge] = useState<string>('')
+  
 
   useEffect(() => {
     async function fetchUsers() {
@@ -21,7 +23,7 @@ function App() {
 
   }, [])
   return (
-    <>
+    <div className='container'>
       <table>
         <thead>
           <tr>
@@ -47,16 +49,26 @@ function App() {
       <form>
         <div className="input-group">
           <label htmlFor='nameInput'>Nev</label>
-          <input type="text" name="name" />
+          <input
+            type="text"
+            name="name"
+            id="nameInput"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
         </div>
         <div className="input-group">
           <label htmlFor='ageInput'>Age</label>
-          <input type="number" name="age" id="ageInput" />
+          <input
+            type="number"
+            name="age"
+            id="ageInput"
+            value={age}
+            onChange={(event) => setAge(event.target.value)}
+          />
         </div>
         <button type="submit">Felvitel</button>
       </form>
-    </>
+    </div>
   )
 }
-
-export default App
