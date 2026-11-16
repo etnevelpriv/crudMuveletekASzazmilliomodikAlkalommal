@@ -1,12 +1,20 @@
 {
-    "users": [
-        {
-            "name": "Kata",
-            "age": 18
-        },
-        {
-            "name": "Adam",
-            "age": 19
-        }
-    ]
+  "users": [
+    {
+      "name": "Kata",
+      "age": 18,
+      "id": "Y0yfVuYkE_s"
+    },
+    {
+      "name": "Adam",
+      "age": 19,
+      "id": "OhPndk-8_uA"
+    },
+    {
+      "name": "Kitti",
+      "age": 20,
+      "id": "YFp6fO55BFQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
